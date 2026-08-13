@@ -1,26 +1,53 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Blueprint Color System */
+  --background: #f8fafc;
+  --foreground: #0b1f3a;
+
+  --blueprint: #0b1f3a;
+  --blueprint-blue: #1e5aa8;
+  --blueprint-light: #eaf3ff;
+  --blueprint-grid: #4a90d9;
+
+  --paper: #f8fafc;
+  --paper-white: #ffffff;
+
+  --ink: #111827;
+  --muted: #64748b;
+
+  --border: #c7d9ee;
+  --border-strong: #8fb4dc;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+
+  --color-blueprint: var(--blueprint);
+  --color-blueprint-blue: var(--blueprint-blue);
+  --color-blueprint-light: var(--blueprint-light);
+  --color-blueprint-grid: var(--blueprint-grid);
+
+  --color-paper: var(--paper);
+  --color-paper-white: var(--paper-white);
+
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+
+  --font-sans: var(--font-manrope);
+  --font-mono: var(--font-jetbrains-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-manrope), sans-serif;
 }
