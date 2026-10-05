@@ -62,7 +62,7 @@ export default function Hero() {
 
         <div className="flex flex-col gap-4 border-b border-dashed border-[var(--border-strong)] pb-5 sm:flex-row sm:items-center sm:justify-between">
           {/* Left Metadata */}
-          <div className="flex flex-wrap items-center gap-x-5 gap-y-2 font-mono text-[9px] uppercase tracking-[0.16em] text-[var(--muted)] sm:text-[10px]">
+          <div className="flex flex-wrap items-center gap-x-5 gap-y-2 font-mono text-xs uppercase tracking-[0.16em] text-[var(--muted)] sm:text-xs">
             <span>
               Project{" "}
               <span className="text-[var(--blueprint)]">/ JAHRED UY</span>
@@ -79,7 +79,7 @@ export default function Hero() {
           </div>
 
           {/* Right Metadata */}
-          <div className="flex items-center gap-5 font-mono text-[9px] uppercase tracking-[0.16em] text-[var(--muted)] sm:text-[10px]">
+          <div className="flex items-center gap-5 font-mono text-xs uppercase tracking-[0.16em] text-[var(--muted)] sm:text-xs">
             <span>JU-001</span>
             <span>Sheet 01 / 05</span>
             <span>Scale 1:1</span>
@@ -98,7 +98,7 @@ export default function Hero() {
 
             <div className="relative z-10">
               {/* Status */}
-              <div className="mb-7 flex items-center gap-3 font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--blueprint-blue)] sm:text-xs">
+              <div className="mb-7 flex items-center gap-3 font-mono text-xs uppercase tracking-[0.2em] text-[var(--blueprint-blue)] sm:text-xs">
                 <span className="relative flex h-2 w-2">
                   <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400 opacity-50" />
                   <span className="relative inline-flex h-2 w-2 rounded-full bg-green-500" />
@@ -108,7 +108,7 @@ export default function Hero() {
               </div>
 
               {/* Eyebrow */}
-              <p className="mb-5 font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--muted)]">
+              <p className="mb-5 font-mono text-xs uppercase tracking-[0.22em] text-[var(--muted)]">
                 Full Stack Developer
               </p>
 
@@ -123,22 +123,22 @@ export default function Hero() {
               <div className="mt-8 flex items-center gap-3">
                 <span className="h-px w-16 bg-[var(--blueprint-blue)]" />
 
-                <span className="font-mono text-[8px] uppercase tracking-[0.18em] text-[var(--muted)]">
+                <span className="font-mono text-xs uppercase tracking-[0.18em] text-[var(--muted)]">
                   Developer / Engineer
                 </span>
               </div>
 
               {/* Description */}
               <p className="mt-7 max-w-xl text-base leading-7 text-[var(--muted)] sm:text-lg sm:leading-8">
-                I build modern web applications that are clean, responsive,
-                and designed to solve real problems.
+                I build applications and automation systems that solve real
+                business problems.
               </p>
 
               {/* CTA */}
               <div className="mt-9 flex flex-col gap-3 sm:flex-row">
                 <Link
                   href="/portfolio"
-                  className="group inline-flex items-center justify-center gap-4 border border-[var(--blueprint)] bg-[var(--blueprint)] px-6 py-3.5 font-mono text-[10px] uppercase tracking-[0.18em] text-white transition-all duration-200 hover:border-[var(--blueprint-blue)] hover:bg-[var(--blueprint-blue)]"
+                  className="group inline-flex items-center justify-center gap-4 border border-[var(--blueprint)] bg-[var(--blueprint)] px-6 py-3.5 font-mono text-xs uppercase tracking-[0.18em] text-white transition-all duration-200 hover:border-[var(--blueprint-blue)] hover:bg-[var(--blueprint-blue)]"
                 >
                   <span>View Projects</span>
 
@@ -149,14 +149,14 @@ export default function Hero() {
 
                 <Link
                   href="/contact"
-                  className="inline-flex items-center justify-center gap-3 border border-[var(--border-strong)] bg-white/50 px-6 py-3.5 font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--blueprint)] backdrop-blur-sm transition-all duration-200 hover:border-[var(--blueprint)] hover:bg-[var(--blueprint-light)]"
+                  className="inline-flex items-center justify-center gap-3 border border-[var(--border-strong)] bg-white/50 px-6 py-3.5 font-mono text-xs uppercase tracking-[0.18em] text-[var(--blueprint)] backdrop-blur-sm transition-all duration-200 hover:border-[var(--blueprint)] hover:bg-[var(--blueprint-light)]"
                 >
                   Contact Me
                 </Link>
               </div>
 
               {/* Technical Coordinates */}
-              <div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-2 font-mono text-[8px] uppercase tracking-[0.16em] text-[var(--muted)]">
+              <div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-2 font-mono text-xs uppercase tracking-[0.16em] text-[var(--muted)]">
                 <span>Grid A-01</span>
                 <span>Web / Mobile</span>
                 <span>2026</span>
@@ -169,7 +169,7 @@ export default function Hero() {
 
             <div className="relative flex min-h-[400px] items-center justify-center sm:min-h-[440px] lg:min-h-[480px]">
               {/* Drawing Label */}
-              <div className="absolute left-0 top-0 hidden font-mono text-[8px] uppercase leading-5 tracking-[0.16em] text-[var(--muted)] xl:block">
+              <div className="absolute left-0 top-0 hidden font-mono text-xs uppercase leading-5 tracking-[0.16em] text-[var(--muted)] xl:block">
                 <span className="text-[var(--blueprint-blue)]">
                   Drawing 01
                 </span>
@@ -210,7 +210,7 @@ export default function Hero() {
 
         <Link
           href="#about"
-          className="group absolute bottom-20 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-2 font-mono text-[8px] uppercase tracking-[0.2em] text-[var(--muted)] transition-colors hover:text-[var(--blueprint-blue)] sm:flex"
+          className="group absolute bottom-20 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-2 font-mono text-xs uppercase tracking-[0.2em] text-[var(--muted)] transition-colors hover:text-[var(--blueprint-blue)] sm:flex"
         >
           {/* Arrow */}
           <span className="text-sm transition-transform duration-200 group-hover:translate-y-1">
@@ -230,7 +230,7 @@ export default function Hero() {
 
         <div className="flex flex-col gap-4 border-t border-dashed border-[var(--border-strong)] pt-5 sm:flex-row sm:items-center sm:justify-between">
           {/* Section Indicator */}
-          <div className="flex items-center gap-4 font-mono text-[8px] uppercase tracking-[0.18em] text-[var(--muted)] sm:text-[9px]">
+          <div className="flex items-center gap-4 font-mono text-xs uppercase tracking-[0.18em] text-[var(--muted)] sm:text-xs">
             <span className="text-[var(--blueprint-blue)]">01</span>
 
             <span className="h-px w-10 bg-[var(--border-strong)]" />
@@ -239,7 +239,7 @@ export default function Hero() {
           </div>
 
           {/* Drawing Information */}
-          <div className="flex flex-wrap items-center gap-x-6 gap-y-2 font-mono text-[8px] uppercase tracking-[0.18em] text-[var(--muted)] sm:text-[9px]">
+          <div className="flex flex-wrap items-center gap-x-6 gap-y-2 font-mono text-xs uppercase tracking-[0.18em] text-[var(--muted)] sm:text-xs">
             <span>Drawing No. JU-001</span>
             <span>Revision A</span>
             <span>2026</span>

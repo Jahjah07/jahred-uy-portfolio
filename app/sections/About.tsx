@@ -1,3 +1,4 @@
+import ResumeDownloads from "@/components/ResumeDownloads";
 import Link from "next/link";
 
 export default function About() {
@@ -46,7 +47,7 @@ export default function About() {
 
         <div className="flex flex-col gap-4 border-b border-dashed border-[var(--border-strong)] pb-5 sm:flex-row sm:items-end sm:justify-between">
           <div>
-            <p className="mb-2 font-mono text-[9px] uppercase tracking-[0.2em] text-[var(--blueprint-blue)]">
+            <p className="mb-2 font-mono text-xs uppercase tracking-[0.2em] text-[var(--blueprint-blue)]">
               Sheet 02
             </p>
 
@@ -55,7 +56,7 @@ export default function About() {
             </h2>
           </div>
 
-          <div className="flex flex-wrap items-center gap-4 font-mono text-[9px] uppercase tracking-[0.16em] text-[var(--muted)]">
+          <div className="flex flex-wrap items-center gap-4 font-mono text-xs uppercase tracking-[0.16em] text-[var(--muted)]">
             <span>JU-002</span>
             <span>Developer Profile</span>
             <span className="hidden sm:inline">Rev A</span>
@@ -70,13 +71,13 @@ export default function About() {
           {/* LEFT — INTRODUCTION */}
           <div>
             <div className="mb-7 flex items-center gap-4">
-              <span className="font-mono text-[9px] uppercase tracking-[0.18em] text-[var(--blueprint-blue)]">
+              <span className="font-mono text-xs uppercase tracking-[0.18em] text-[var(--blueprint-blue)]">
                 02.01
               </span>
 
               <span className="h-px w-16 bg-[var(--border-strong)]" />
 
-              <span className="font-mono text-[9px] uppercase tracking-[0.18em] text-[var(--muted)]">
+              <span className="font-mono text-xs uppercase tracking-[0.18em] text-[var(--muted)]">
                 Introduction
               </span>
             </div>
@@ -96,10 +97,12 @@ export default function About() {
               integrations, and application features.
             </p>
 
+            <ResumeDownloads />
+
             {/* CTA */}
             <Link
               href="/about"
-              className="group mt-8 inline-flex items-center gap-4 border border-[var(--blueprint)] bg-transparent px-6 py-3.5 font-mono text-[9px] uppercase tracking-[0.18em] text-[var(--blueprint)] transition-all duration-200 hover:bg-[var(--blueprint)] hover:text-white"
+              className="group mt-8 inline-flex items-center gap-4 border border-[var(--blueprint)] bg-transparent px-6 py-3.5 font-mono text-xs uppercase tracking-[0.18em] text-[var(--blueprint)] transition-all duration-200 hover:bg-[var(--blueprint)] hover:text-white"
             >
               <span>Read More About Me</span>
 
@@ -112,11 +115,11 @@ export default function About() {
           {/* RIGHT — PROFILE SPECIFICATION */}
           <div className="relative">
             <div className="mb-4 flex items-center justify-between">
-              <span className="font-mono text-[9px] uppercase tracking-[0.18em] text-[var(--muted)]">
+              <span className="font-mono text-xs uppercase tracking-[0.18em] text-[var(--muted)]">
                 Profile Specification
               </span>
 
-              <span className="font-mono text-[8px] text-[var(--blueprint-blue)]">
+              <span className="font-mono text-xs text-[var(--blueprint-blue)]">
                 FIG. 02-A
               </span>
             </div>
@@ -160,11 +163,11 @@ export default function About() {
 
               {/* Technical Marker */}
               <div className="mt-6 flex items-center justify-between border-t border-dashed border-[var(--border-strong)] pt-5">
-                <span className="font-mono text-[7px] uppercase tracking-[0.15em] text-[var(--muted)]">
+                <span className="font-mono text-xs uppercase tracking-[0.15em] text-[var(--muted)]">
                   Developer Profile
                 </span>
 
-                <span className="font-mono text-[7px] uppercase tracking-[0.15em] text-[var(--blueprint-blue)]">
+                <span className="font-mono text-xs uppercase tracking-[0.15em] text-[var(--blueprint-blue)]">
                   JU-002
                 </span>
               </div>
@@ -174,7 +177,7 @@ export default function About() {
             <div className="mt-4 flex items-center gap-3">
               <span className="h-px flex-1 bg-[var(--border-strong)]" />
 
-              <span className="font-mono text-[8px] uppercase tracking-[0.16em] text-[var(--muted)]">
+              <span className="font-mono text-xs uppercase tracking-[0.16em] text-[var(--muted)]">
                 Profile / 01
               </span>
 
@@ -188,7 +191,7 @@ export default function About() {
         ==================================================== */}
 
         <div className="flex flex-col gap-4 border-t border-dashed border-[var(--border-strong)] pt-5 sm:flex-row sm:items-center sm:justify-between">
-          <div className="flex items-center gap-4 font-mono text-[8px] uppercase tracking-[0.18em] text-[var(--muted)] sm:text-[9px]">
+          <div className="flex items-center gap-4 font-mono text-xs uppercase tracking-[0.18em] text-[var(--muted)] sm:text-xs">
             <span className="text-[var(--blueprint-blue)]">02</span>
 
             <span className="h-px w-10 bg-[var(--border-strong)]" />
@@ -196,7 +199,7 @@ export default function About() {
             <span>About / Developer Profile</span>
           </div>
 
-          <div className="flex flex-wrap gap-x-6 gap-y-2 font-mono text-[8px] uppercase tracking-[0.18em] text-[var(--muted)] sm:text-[9px]">
+          <div className="flex flex-wrap gap-x-6 gap-y-2 font-mono text-xs uppercase tracking-[0.18em] text-[var(--muted)] sm:text-xs">
             <span>Drawing No. JU-002</span>
             <span>Revision A</span>
             <span>2026</span>
@@ -220,7 +223,7 @@ function ProfileRow({
 }) {
   return (
     <div className="grid grid-cols-[100px_1fr] gap-4 py-4 sm:grid-cols-[120px_1fr]">
-      <span className="font-mono text-[8px] uppercase tracking-[0.14em] text-[var(--muted)]">
+      <span className="font-mono text-xs uppercase tracking-[0.14em] text-[var(--muted)]">
         {label}
       </span>
 

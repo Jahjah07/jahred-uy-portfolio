@@ -1,36 +1,26 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Jahred Uy Portfolio
 
-## Getting Started
+Next.js portfolio with featured projects, source-reviewed project pages and a contact form.
 
-First, run the development server:
-
-```bash
+```sh
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm run lint
+npx tsc --noEmit
+npm run build
+node --test tests/contact.test.mjs
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Deployment
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Copy `.env.example` to `.env.local`. Set `NEXT_PUBLIC_SITE_URL` to this deployment's public URL, without a trailing slash. Configure `RESEND_API_KEY` and `CONTACT_FROM_EMAIL` on the server and hosting provider; the sender must be authorized by Resend. The contact recipient is fixed to khikho107@gmail.com. No secrets belong in NEXT_PUBLIC variables.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+The contact form uses the [Resend REST API](https://resend.com/docs/api-reference/emails/send-email). Without configuration it shows a direct-email fallback. A successful API response means provider acceptance, not confirmed inbox delivery. Check real delivery after deployment. Honeypot and same-origin checks are basic abuse controls; enable hosting/WAF rate limits before public launch.
 
-## Learn More
+Fonts are bundled locally from Next.js's Geist font assets so builds need no Google Fonts requests. See `public/fonts/OFL.txt`.
 
-To learn more about Next.js, take a look at the following resources:
+`docs/project-evidence.md` records source review and limitations. Supplied résumé/CV downloads and screenshots for LandVault, Cozy Pantry, and April are included. Screenshots for other projects and DentalFlow files remain pending. No invented screenshots or business outcomes are included.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Browser verification
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+On Windows with Chrome and Python's websocket-client installed, start the production server on port 3012, then run `python scripts/verify-browser.py`. Checks cover 390/768/1440px layouts, horizontal overflow, landmarks, mobile menu Escape/focus behavior, and required contact fields. Captures are written to ignored `artifacts/browser/`. Tests send no real email.
