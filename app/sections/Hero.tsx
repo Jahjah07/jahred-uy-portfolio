@@ -4,7 +4,7 @@ import PhoneMockup from "@/components/blueprint/PhoneMockup";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-[calc(100vh-5rem)] overflow-hidden bg-[var(--paper)]">
+    <section className="relative min-h-[calc(100dvh-5rem)] overflow-hidden bg-[var(--paper)]">
       {/* =====================================================
           BLUEPRINT BACKGROUND
       ====================================================== */}
@@ -55,7 +55,7 @@ export default function Hero() {
           MAIN CONTAINER
       ====================================================== */}
 
-      <div className="relative mx-auto flex min-h-[calc(100vh-5rem)] max-w-7xl flex-col px-6 py-8 sm:px-8 lg:px-10 lg:py-10">
+      <div className="relative mx-auto flex min-h-[calc(100dvh-5rem)] max-w-7xl flex-col px-6 py-8 sm:px-8 lg:px-10 lg:py-10">
         {/* ===================================================
             TECHNICAL HEADER
         ==================================================== */}
@@ -91,12 +91,12 @@ export default function Hero() {
         ==================================================== */}
 
         <div className="flex flex-1 items-center py-14 sm:py-16 lg:py-10">
-          <div className="grid w-full items-center gap-16 lg:grid-cols-[0.9fr_1.1fr] lg:gap-8">
+          <div className="grid w-full items-center gap-16 lg:grid-cols-[0.9fr_1.1fr] lg:gap-12">
             {/* =================================================
                 LEFT CONTENT
             ================================================== */}
 
-            <div className="relative z-10">
+            <div className="relative z-10 min-w-0 [container-type:inline-size]">
               {/* Status */}
               <div className="mb-7 flex items-center gap-3 font-mono text-xs uppercase tracking-[0.2em] text-[var(--blueprint-blue)] sm:text-xs">
                 <span className="relative flex h-2 w-2">
@@ -113,7 +113,7 @@ export default function Hero() {
               </p>
 
               {/* Name */}
-              <h1 className="font-sans text-[clamp(4.5rem,10vw,8.5rem)] font-extrabold leading-[0.78] tracking-[-0.075em] text-[var(--blueprint)]">
+              <h1 className="font-sans text-[clamp(3.5rem,27cqw,8.5rem)] font-extrabold leading-[0.78] tracking-[-0.075em] text-[var(--blueprint)]">
                 JAHRED
                 <br />
                 <span className="text-[var(--blueprint-blue)]">UY</span>
@@ -167,23 +167,14 @@ export default function Hero() {
                 RIGHT DEVICE COMPOSITION
             ================================================== */}
 
-            <div className="relative flex min-h-[400px] items-center justify-center sm:min-h-[440px] lg:min-h-[480px]">
-              {/* Drawing Label */}
-              <div className="absolute left-0 top-0 hidden font-mono text-xs uppercase leading-5 tracking-[0.16em] text-[var(--muted)] xl:block">
-                <span className="text-[var(--blueprint-blue)]">
-                  Drawing 01
-                </span>
-                <br />
-                Interface / Responsive
-              </div>
-
+            <div aria-hidden="true" className="relative mx-auto flex w-full max-w-xl items-center justify-center px-4 pb-28 pt-16 sm:px-8 sm:pb-32 lg:px-4">
               {/* Laptop */}
               <div className="relative z-10 w-full max-w-xl">
                 <LaptopMockup />
               </div>
 
               {/* Phone */}
-              <div className="absolute bottom-[-30px] right-[3%] z-20 sm:right-[7%] lg:bottom-[-40px]">
+              <div className="absolute bottom-4 right-4 z-20 sm:right-8">
                 <PhoneMockup />
               </div>
 
@@ -210,7 +201,7 @@ export default function Hero() {
 
         <Link
           href="#about"
-          className="group absolute bottom-20 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-2 font-mono text-xs uppercase tracking-[0.2em] text-[var(--muted)] transition-colors hover:text-[var(--blueprint-blue)] sm:flex"
+          className="group mb-6 hidden flex-col items-center gap-2 font-mono text-xs uppercase tracking-[0.2em] text-[var(--muted)] transition-colors hover:text-[var(--blueprint-blue)] sm:flex"
         >
           {/* Arrow */}
           <span className="text-sm transition-transform duration-200 group-hover:translate-y-1">

@@ -29,7 +29,7 @@ with tempfile.TemporaryDirectory(prefix="portfolio-browser-") as profile:
             if "exceptionDetails" in result: raise RuntimeError(result["exceptionDetails"])
             return result["result"].get("value")
         call("Page.enable")
-        for width in [390, 768, 1440]:
+        for width in [390, 768, 1024, 1440, 1895]:
             call("Emulation.setDeviceMetricsOverride", {"width": width, "height": 900, "deviceScaleFactor": 1, "mobile": width < 768})
             for route in ["/", "/about", "/services", "/contact", "/portfolio", "/portfolio/sme-operations-crm", "/portfolio/landvault", "/portfolio/cozy-pantry", "/portfolio/april-rose-alpha"]:
                 call("Page.navigate", {"url": base+route})
@@ -47,11 +47,12 @@ with tempfile.TemporaryDirectory(prefix="portfolio-browser-") as profile:
                     call("Input.dispatchKeyEvent", {"type": "keyDown", "key": "Escape", "code": "Escape", "windowsVirtualKeyCode": 27})
                     assert evaluate("document.querySelector('[aria-controls=mobile-navigation]').getAttribute('aria-expanded')") == "false"
                     assert evaluate("document.activeElement === document.querySelector('[aria-controls=mobile-navigation]')")
-                if route == "/contact": assert not evaluate("document.querySelector('form').checkValidity()")
-                if route == "/portfolio" and width in [390,1440]:
+                if route == "/contact": assert evaluate("document.querySelector('form') ? !document.querySelector('form').checkValidity() : !!document.querySelector('#contact-form-status')")
+                if route == "/" or (route == "/portfolio" and width in [390,1440]):
                     shot = call("Page.captureScreenshot", {"format": "png"})
-                    (artifacts / ("portfolio-"+str(width)+".png")).write_bytes(base64.b64decode(shot["data"]))
+                    (artifacts / (("home-" if route == "/" else "portfolio-")+str(width)+".png")).write_bytes(base64.b64decode(shot["data"]))
                 print(width, route, "PASS", flush=True)
+        call("Browser.close")
         ws.close()
     finally:
         process.terminate(); process.wait(timeout=10)

@@ -1,6 +1,6 @@
 export default function LaptopMockup() {
   return (
-    <div className="relative w-full max-w-3xl">
+    <div className="relative w-full max-w-3xl [container-type:inline-size]">
       {/* Dimension - Top */}
       <div className="absolute -top-8 left-0 right-0 flex items-center gap-3">
         <div className="h-px flex-1 bg-[var(--blueprint-grid)]" />
@@ -47,7 +47,7 @@ export default function LaptopMockup() {
             {/* Mock Portfolio Content */}
             <div className="relative flex h-full flex-col p-[6%]">
               {/* Mini Navigation */}
-              <div className="flex items-center justify-between border-b border-[var(--border)] pb-3">
+              <div className="flex items-center justify-between border-b border-[var(--border)] pb-[2%]">
                 <div className="font-mono text-[6px] font-bold tracking-widest text-[var(--blueprint)] sm:text-[8px]">
                   JU
                 </div>
@@ -66,13 +66,13 @@ export default function LaptopMockup() {
                     Full Stack Developer
                   </p>
 
-                  <h3 className="font-sans text-[clamp(1.2rem,4vw,3.5rem)] font-extrabold leading-[0.85] tracking-[-0.06em] text-[var(--blueprint)]">
+                  <h3 className="font-sans text-[10cqw] font-extrabold leading-[0.85] tracking-[-0.06em] text-[var(--blueprint)]">
                     JAHRED
                     <br />
                     <span className="text-[var(--blueprint-blue)]">UY</span>
                   </h3>
 
-                  <div className="mt-3 h-px w-16 bg-[var(--blueprint-blue)] sm:mt-5 sm:w-24" />
+                  <div className="mt-3 h-px w-16 bg-[var(--blueprint-blue)] sm:mt-[3%] sm:w-24" />
 
                   <p className="mt-2 max-w-[180px] font-sans text-[5px] leading-relaxed text-[var(--muted)] sm:text-[7px]">
                     Building clean, practical, and scalable digital
@@ -101,7 +101,7 @@ export default function LaptopMockup() {
       </div>
 
       {/* Bottom Dimension */}
-      <div className="mt-8 flex items-center justify-center gap-3">
+      <div className="mt-8 flex items-center justify-start gap-3">
         <span className="h-px w-10 bg-[var(--blueprint-grid)]" />
 
         <span className="font-mono text-[8px] uppercase tracking-[0.18em] text-[var(--muted)]">

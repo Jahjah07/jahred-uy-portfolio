@@ -15,11 +15,11 @@ node --test tests/contact.test.mjs
 
 Copy `.env.example` to `.env.local`. Set `NEXT_PUBLIC_SITE_URL` to this deployment's public URL, without a trailing slash. Configure `RESEND_API_KEY` and `CONTACT_FROM_EMAIL` on the server and hosting provider; the sender must be authorized by Resend. The contact recipient is fixed to khikho107@gmail.com. No secrets belong in NEXT_PUBLIC variables.
 
-The contact form uses the [Resend REST API](https://resend.com/docs/api-reference/emails/send-email). Without configuration it shows a direct-email fallback. A successful API response means provider acceptance, not confirmed inbox delivery. Check real delivery after deployment. Honeypot and same-origin checks are basic abuse controls; enable hosting/WAF rate limits before public launch.
+The contact form uses the [Resend REST API](https://resend.com/docs/api-reference/emails/send-email). Without configuration the Contact page hides the form and directs visitors to email, WhatsApp, or phone. After adding the mail settings, rebuild/redeploy to enable the form. A successful API response means provider acceptance, not confirmed inbox delivery. Check real delivery after deployment. Honeypot and same-origin checks are basic abuse controls; enable hosting/WAF rate limits before public launch.
 
 Fonts are bundled locally from Next.js's Geist font assets so builds need no Google Fonts requests. See `public/fonts/OFL.txt`.
 
-`docs/project-evidence.md` records source review and limitations. Supplied résumé/CV downloads and screenshots for LandVault, Cozy Pantry, and April are included. Screenshots for other projects and DentalFlow files remain pending. No invented screenshots or business outcomes are included.
+`docs/project-evidence.md` records source review and limitations. Supplied résumé/CV downloads and screenshots for SME Operations CRM, LandVault, Cozy Pantry, and April are included. DentalFlow screenshot evidence is included; workflow source remains pending. No invented screenshots or business outcomes are included.
 
 ## Browser verification
 
