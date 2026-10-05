@@ -16,8 +16,8 @@ export default function ProjectsPage() {
         <p className="text-sm text-[var(--blueprint-blue)]">{project.category}</p>
         <h2 className="mt-3 text-2xl font-bold tracking-tight sm:text-3xl">{project.title}</h2>
         <p className="mt-4 max-w-xl text-sm leading-7 text-[var(--muted)]">{project.description}</p>
-        <p className="mt-4 font-mono text-xs leading-6 text-[var(--blueprint-blue)]">{project.stack.split(" · ").filter((_, index) => index < 4).join(" · ")}</p>
-        <Link href={`/portfolio/${project.slug}`} className="mt-6 inline-block font-semibold text-[var(--blueprint-blue)] underline underline-offset-4">View project &rarr;</Link>
+        <p className="mt-4 font-mono text-sm leading-6 text-[var(--blueprint-blue)]">{project.stack.split(" · ").filter((_, index) => index < 4).join(" · ")}</p>
+        <Link href={`/portfolio/${project.slug}`} className="mt-6 inline-block font-semibold text-[var(--blueprint-blue)] underline underline-offset-4">View case study &rarr;</Link>
       </article>)}
     </section>
     <section className="border-t border-dashed border-[var(--border-strong)] py-10">

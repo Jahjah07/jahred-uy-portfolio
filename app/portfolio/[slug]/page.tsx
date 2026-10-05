@@ -23,10 +23,10 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
     <p className="mt-5 max-w-3xl text-sm leading-6 text-[var(--muted)]">{project.status}</p>
     <ProjectGallery slug={project.slug} />
     {project.slug === "sme-operations-crm" && <CrmCaseStudy />}
-    <section className="py-10"><h2 className="text-2xl font-bold">Capabilities</h2><p className="mt-4 max-w-3xl text-base leading-8 text-[var(--muted)]">{project.features}</p></section>
-    <section className="border-t border-dashed border-[var(--border-strong)] py-10"><h2 className="text-2xl font-bold">{project.flowTitle}</h2>
+    <section className="py-10"><h2 className="text-2xl font-bold">Key features</h2><ul className="mt-4 max-w-3xl list-disc space-y-3 pl-5 text-base leading-8 text-[var(--muted)]">{project.features.split("; ").map((feature) => <li key={feature}>{feature}</li>)}</ul></section>
+    {project.slug !== "sme-operations-crm" && <section className="border-t border-dashed border-[var(--border-strong)] py-10"><h2 className="text-2xl font-bold">{project.flowTitle}</h2>
       <ol className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">{project.flow.map((step, index) => <li key={step} className="flex items-center gap-3">{index > 0 && <span aria-hidden="true">&rarr;</span>}<span className="border border-[var(--border-strong)] bg-white px-4 py-3 text-sm">{step}</span></li>)}</ol>
-    </section>
+    </section>}
     <section className="border-t border-dashed border-[var(--border-strong)] py-10"><h2 className="text-2xl font-bold">Technologies</h2><p className="mt-4 font-mono text-sm leading-7 text-[var(--blueprint-blue)]">{project.stack}</p>
       {"liveUrl" in project && <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="mt-6 inline-block font-semibold text-[var(--blueprint-blue)] underline underline-offset-4">View live website &rarr;</a>}
     </section>

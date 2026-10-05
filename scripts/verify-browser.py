@@ -31,7 +31,7 @@ with tempfile.TemporaryDirectory(prefix="portfolio-browser-") as profile:
         call("Page.enable")
         for width in [390, 768, 1024, 1440, 1895]:
             call("Emulation.setDeviceMetricsOverride", {"width": width, "height": 900, "deviceScaleFactor": 1, "mobile": width < 768})
-            for route in ["/", "/about", "/services", "/contact", "/portfolio", "/portfolio/sme-operations-crm", "/portfolio/landvault", "/portfolio/cozy-pantry", "/portfolio/april-rose-alpha"]:
+            for route in ["/", "/about", "/services", "/contact", "/portfolio", "/portfolio/sme-operations-crm", "/portfolio/dentalflow", "/portfolio/landvault", "/portfolio/cozy-pantry", "/portfolio/april-rose-alpha"]:
                 call("Page.navigate", {"url": base+route})
                 for _ in range(100):
                     if evaluate("document.readyState === 'complete' && location.pathname === "+json.dumps(route)): break
@@ -47,7 +47,9 @@ with tempfile.TemporaryDirectory(prefix="portfolio-browser-") as profile:
                     call("Input.dispatchKeyEvent", {"type": "keyDown", "key": "Escape", "code": "Escape", "windowsVirtualKeyCode": 27})
                     assert evaluate("document.querySelector('[aria-controls=mobile-navigation]').getAttribute('aria-expanded')") == "false"
                     assert evaluate("document.activeElement === document.querySelector('[aria-controls=mobile-navigation]')")
-                if route == "/contact": assert evaluate("document.querySelector('form') ? !document.querySelector('form').checkValidity() : !!document.querySelector('#contact-form-status')")
+                if route == "/portfolio":
+                    assert evaluate("document.querySelectorAll('main a[href^=\"/portfolio/\"]').length") == 5, "project links"
+                if route == "/contact": assert evaluate("document.querySelector('form') ? !document.querySelector('form').checkValidity() : !!document.querySelector('#contact-options a[href^=\"mailto:\"]')")
                 if route == "/" or (route == "/portfolio" and width in [390,1440]):
                     shot = call("Page.captureScreenshot", {"format": "png"})
                     (artifacts / (("home-" if route == "/" else "portfolio-")+str(width)+".png")).write_bytes(base64.b64decode(shot["data"]))

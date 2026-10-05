@@ -119,15 +119,6 @@ export default function Hero() {
                 <span className="text-[var(--blueprint-blue)]">UY</span>
               </h1>
 
-              {/* Construction Line */}
-              <div className="mt-8 flex items-center gap-3">
-                <span className="h-px w-16 bg-[var(--blueprint-blue)]" />
-
-                <span className="font-mono text-xs uppercase tracking-[0.18em] text-[var(--muted)]">
-                  Developer / Engineer
-                </span>
-              </div>
-
               {/* Description */}
               <p className="mt-7 max-w-xl text-base leading-7 text-[var(--muted)] sm:text-lg sm:leading-8">
                 I build applications and automation systems that solve real

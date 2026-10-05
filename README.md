@@ -23,4 +23,4 @@ Fonts are bundled locally from Next.js's Geist font assets so builds need no Goo
 
 ## Browser verification
 
-On Windows with Chrome and Python's websocket-client installed, start the production server on port 3012, then run `python scripts/verify-browser.py`. Checks cover 390/768/1440px layouts, horizontal overflow, landmarks, mobile menu Escape/focus behavior, and required contact fields. Captures are written to ignored `artifacts/browser/`. Tests send no real email.
+On Windows with Chrome and Python's websocket-client installed, start the production server on port 3012, then run `python scripts/verify-browser.py`. Checks cover 390/768/1024/1440/1895px layouts, horizontal overflow, landmarks, mobile menu Escape/focus behavior, and contact form validation or direct email access. Captures are written to ignored `artifacts/browser/`. Tests send no real email.
