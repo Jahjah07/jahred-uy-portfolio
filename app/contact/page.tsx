@@ -130,23 +130,26 @@ export default function ContactPage() {
             <div className="space-y-4">
               <ContactDetail
                 label="Email"
-                value="your@email.com"
-                href="mailto:your@email.com"
+                value="khikho107@gmail.com"
+                href="mailto:khikho107@gmail.com"
               />
 
               <ContactDetail
                 label="GitHub"
-                value="github.com/yourusername"
-                href="https://github.com"
+                value="github.com/Jahjah07"
+                href="https://github.com/Jahjah07"
               />
 
               <ContactDetail
-                label="LinkedIn"
-                value="linkedin.com/in/yourusername"
-                href="https://linkedin.com"
+                label="WhatsApp"
+                value="0955 281 1786"
+                href="https://wa.me/639552811786"
               />
             </div>
 
+            <div className="mt-4">
+              <ContactDetail label="Phone" value="0955 281 1786" href="tel:+639552811786" />
+            </div>
             {/* Availability */}
             <div className="mt-8 border border-[var(--border-strong)] bg-white/30 p-6">
               <div className="flex items-center gap-3">

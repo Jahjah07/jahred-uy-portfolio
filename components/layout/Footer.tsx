@@ -64,12 +64,15 @@ export default function Footer() {
 
             <div className="space-y-3 text-sm">
               <a
-                href="mailto:your@email.com"
+                href="mailto:khikho107@gmail.com"
                 className="block text-white/70 transition-colors hover:text-white"
               >
-                your@email.com
+                khikho107@gmail.com
               </a>
 
+              <a href="https://github.com/Jahjah07" target="_blank" rel="noopener noreferrer" className="block text-white/70 hover:text-white">GitHub / Jahjah07</a>
+              <a href="tel:+639552811786" className="block text-white/70 hover:text-white">0955 281 1786</a>
+              <a href="https://wa.me/639552811786" target="_blank" rel="noopener noreferrer" className="block text-white/70 hover:text-white">Message on WhatsApp</a>
               <p className="font-mono text-xs text-white/40">
                 PHILIPPINES
               </p>

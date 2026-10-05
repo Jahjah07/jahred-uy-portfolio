@@ -1,6 +1,8 @@
+import { projects } from "./projects";
+
 export default function ProjectsPage() {
   return (
-    <main className="relative min-h-screen overflow-hidden bg-[var(--paper)]">
+    <main className="relative min-h-[100dvh] overflow-hidden bg-[var(--paper)]">
       {/* =====================================================
           BLUEPRINT GRID
       ====================================================== */}
@@ -98,7 +100,7 @@ export default function ProjectsPage() {
               <span className="text-[var(--blueprint-blue)]">
                 applications, systems, and digital experiences
               </span>{" "}
-              I've worked on.
+              I&apos;ve worked on.
             </h2>
           </div>
 
@@ -111,7 +113,7 @@ export default function ProjectsPage() {
               </p>
 
               <p className="mt-1 font-mono text-sm font-bold text-[var(--blueprint)]">
-                05+ Projects
+                {String(projects.length).padStart(2, "0")} Projects
               </p>
             </div>
           </div>
@@ -140,40 +142,9 @@ export default function ProjectsPage() {
 
           {/* Project List */}
           <div className="space-y-4">
-            <ProjectPlaceholder
-              number="01"
-              category="Web Application"
-              title="Project One"
-              description="Project description will be added here."
-            />
-
-            <ProjectPlaceholder
-              number="02"
-              category="Web Application"
-              title="Project Two"
-              description="Project description will be added here."
-            />
-
-            <ProjectPlaceholder
-              number="03"
-              category="Full Stack Application"
-              title="Project Three"
-              description="Project description will be added here."
-            />
-
-            <ProjectPlaceholder
-              number="04"
-              category="Mobile Application"
-              title="Project Four"
-              description="Project description will be added here."
-            />
-
-            <ProjectPlaceholder
-              number="05"
-              category="Web Application"
-              title="Project Five"
-              description="Project description will be added here."
-            />
+            {projects.map((project, index) => (
+              <ProjectEntry key={project.title} number={String(index + 1).padStart(2, "0")} {...project} />
+            ))}
           </div>
         </section>
 
@@ -210,7 +181,7 @@ export default function ProjectsPage() {
 
             <CategoryCard
               number="04"
-              title="UI / UX"
+              title="Automation & AI"
             />
           </div>
         </section>
@@ -244,10 +215,18 @@ export default function ProjectsPage() {
                   "JavaScript",
                   "Tailwind CSS",
                   "Node.js",
-                  "PHP",
-                  "Laravel",
-                  "MySQL",
-                  "Firebase",
+                  "NestJS",
+                  "PostgreSQL / PostGIS",
+                  "Prisma",
+                  "Docker",
+                  "n8n",
+                  "Supabase",
+                  "React Native",
+                  "Expo",
+                  "SQLite",
+                  "MongoDB",
+                  "Blockchain",
+                  "Qwen",
                   "Git",
                   "GitHub",
                 ].map((technology) => (
@@ -288,19 +267,29 @@ export default function ProjectsPage() {
 }
 
 /* =========================================================
-   PROJECT PLACEHOLDER
+   PROJECT ENTRY
 ========================================================= */
 
-function ProjectPlaceholder({
+function ProjectEntry({
   number,
   category,
   title,
   description,
+  stack,
+  features,
+  flowTitle,
+  flow,
+  liveUrl,
 }: {
   number: string;
   category: string;
   title: string;
   description: string;
+  stack: string;
+  features: string;
+  flowTitle: string;
+  flow: string[];
+  liveUrl?: string;
 }) {
   return (
     <article className="group relative border border-[var(--border-strong)] bg-white/30 p-5 transition-colors duration-200 hover:border-[var(--blueprint-blue)] hover:bg-[var(--blueprint-light)] sm:p-6 lg:p-7">
@@ -334,6 +323,28 @@ function ProjectPlaceholder({
           <p className="mt-2 max-w-2xl text-sm leading-6 text-[var(--muted)]">
             {description}
           </p>
+          <p className="mt-4 text-sm font-medium leading-6 text-[var(--blueprint-blue)]">{stack}</p>
+          {liveUrl && (
+            <a href={liveUrl} target="_blank" rel="noopener noreferrer" className="mt-4 inline-block text-sm font-semibold text-[var(--blueprint-blue)] underline underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-4">
+              View live website &rarr;
+            </a>
+          )}
+          <details className="mt-5" open={number === "01"}>
+            <summary className="cursor-pointer text-sm font-semibold text-[var(--blueprint-blue)] focus-visible:outline-2 focus-visible:outline-offset-4">Explore {title}</summary>
+            <h4 className="mt-5 text-sm font-semibold">Key capabilities</h4>
+            <p className="mt-2 max-w-3xl text-sm leading-7 text-[var(--muted)]">{features}</p>
+            <figure className="mt-5 border border-[var(--border-strong)] bg-[var(--blueprint-light)] p-4">
+              <figcaption className="mb-3 text-sm font-semibold">{flowTitle}</figcaption>
+              <ol className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
+                {flow.map((step, index) => (
+                  <li key={step} className="flex items-center gap-3 text-sm">
+                    {index > 0 && <span aria-hidden="true">&rarr;</span>}
+                    <span className="border border-[var(--border-strong)] bg-[var(--paper-white)] px-3 py-2">{step}</span>
+                  </li>
+                ))}
+              </ol>
+            </figure>
+          </details>
         </div>
 
         {/* Technical Marker */}

@@ -132,7 +132,7 @@ export default function AboutPage() {
 
             <div className="mt-8 max-w-2xl space-y-5 text-sm leading-7 text-[var(--muted)] sm:text-base sm:leading-8">
               <p>
-                I'm a Full Stack Developer with 2 years of professional
+                I&apos;m a Full Stack Developer with 2 years of professional
                 experience building and maintaining responsive web
                 applications.
               </p>
