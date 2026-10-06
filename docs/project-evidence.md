@@ -9,6 +9,7 @@ Reviewed 2026-10-05. Source inspection confirms implementation presence, not pro
 - April: source confirms responsive navigation, Motion, gallery/lightbox and Resend contact endpoint. Live email delivery not tested.
 - DentalFlow: supplied screenshots reviewed on 2026-10-06. Booking form, intake workflow branches, receptionist dashboard, and a sent confirmation email support prototype status. Workflow exports and end-to-end execution remain unverified.
 - Odysseus: removed at user request.
+- LUPAD-Ta: local `Codes/lupad-ta` source and four supplied screenshots reviewed on 2026-10-06. Source confirms Next.js, React, TypeScript, CSS, 14 tour package pages, destination listings, responsive navigation, and an inquiry form that opens a prefilled email draft. The visitor sends the draft in their email app; no direct server delivery or lead storage is claimed. Production deployment and inquiry delivery were not tested.
 
 Pending attachments: real screenshots, résumé PDF, DentalFlow files. Individual responsibilities and measurable achievements still need user confirmation.
 

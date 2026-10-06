@@ -55,4 +55,16 @@ export const projects = [
     flow: ["Introduction", "Experience + services", "Creative portfolio", "Contact inquiry"],
     liveUrl: "https://april-rose-alpha-portfolio.vercel.app/",
   },
+  {
+    slug: "lupad-ta",
+    status: "Source and supplied screenshots reviewed; production deployment and inquiry delivery not verified.",
+    title: "LUPAD-Ta Travel & Tours",
+    category: "Travel agency / Tour discovery website",
+    description: "A travel agency website helping visitors explore Philippine destinations, compare tour packages, and plan trips with a Dumaguete-based team.",
+    stack: "Next.js · React · TypeScript · CSS",
+    features: "Responsive layouts and mobile navigation; 14 tour package detail pages with original flyers, highlights, and inclusions; destination pages with related packages; inquiry form that prepares an email draft in the visitor's email app; Facebook Messenger, phone, and map links; CSS animations with reduced-motion support.",
+    flowTitle: "Visitor journey",
+    flow: ["Explore destinations", "Compare tour packages", "Review package details", "Prepare email inquiry / message on Facebook"],
+    liveUrl: "https://lupad-ta.vercel.app/",
+  },
 ];

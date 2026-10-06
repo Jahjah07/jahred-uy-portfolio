@@ -3,19 +3,19 @@ export default function LaptopMockup() {
     <div className="relative w-full max-w-3xl [container-type:inline-size]">
       {/* Dimension - Top */}
       <div className="absolute -top-8 left-0 right-0 flex items-center gap-3">
-        <div className="h-px flex-1 bg-[var(--blueprint-grid)]" />
+        <div className="hero-draw-line h-px flex-1 bg-[var(--blueprint-grid)]" />
 
         <span className="font-mono text-[9px] uppercase tracking-[0.15em] text-[var(--blueprint-blue)]">
           1440px
         </span>
 
-        <div className="h-px flex-1 bg-[var(--blueprint-grid)]" />
+        <div className="hero-draw-line h-px flex-1 bg-[var(--blueprint-grid)]" />
       </div>
 
       {/* Dimension - Left */}
       <div className="absolute -left-8 top-0 bottom-12 hidden items-center md:flex">
         <div className="relative flex h-full items-center">
-          <div className="h-full w-px bg-[var(--blueprint-grid)]" />
+          <div className="hero-draw-line h-full w-px bg-[var(--blueprint-grid)]" />
 
           <span className="absolute -left-7 rotate-[-90deg] whitespace-nowrap font-mono text-[9px] uppercase tracking-[0.15em] text-[var(--blueprint-blue)]">
             820px
@@ -26,12 +26,12 @@ export default function LaptopMockup() {
       {/* Laptop */}
       <div className="relative mx-auto w-[92%]">
         {/* Screen Frame */}
-        <div className="relative rounded-t-lg border-2 border-[var(--blueprint-blue)] bg-[var(--blueprint-light)] p-2 shadow-[0_20px_50px_rgba(11,31,58,0.12)]">
+        <div className="hero-draw-frame relative rounded-t-lg border-2 border-[var(--blueprint-blue)] bg-[var(--blueprint-light)] p-2 shadow-[0_20px_50px_rgba(11,31,58,0.12)]">
           {/* Camera */}
           <div className="absolute left-1/2 top-2 z-10 h-1.5 w-1.5 -translate-x-1/2 rounded-full bg-[var(--blueprint-blue)]" />
 
           {/* Screen */}
-          <div className="relative aspect-[16/10] overflow-hidden border border-[var(--blueprint-grid)] bg-[var(--paper-white)]">
+          <div className="hero-screen relative aspect-[16/10] overflow-hidden border border-[var(--blueprint-grid)] bg-[var(--paper-white)]">
             {/* Screen Blueprint Grid */}
             <div
               className="absolute inset-0 opacity-40"

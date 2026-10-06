@@ -2,7 +2,7 @@
 import base64, json, os, pathlib, subprocess, tempfile, time, urllib.request
 import websocket
 base = "http://localhost:3012"
-chrome = r"C:\Program Files\Google\Chrome\Application\chrome.exe"
+chrome = os.environ.get("PORTFOLIO_BROWSER", r"C:\Program Files\Google\Chrome\Application\chrome.exe")
 artifacts = pathlib.Path("artifacts/browser")
 artifacts.mkdir(parents=True, exist_ok=True)
 with tempfile.TemporaryDirectory(prefix="portfolio-browser-") as profile:
@@ -31,7 +31,7 @@ with tempfile.TemporaryDirectory(prefix="portfolio-browser-") as profile:
         call("Page.enable")
         for width in [390, 768, 1024, 1440, 1895]:
             call("Emulation.setDeviceMetricsOverride", {"width": width, "height": 900, "deviceScaleFactor": 1, "mobile": width < 768})
-            for route in ["/", "/about", "/services", "/contact", "/portfolio", "/portfolio/sme-operations-crm", "/portfolio/dentalflow", "/portfolio/landvault", "/portfolio/cozy-pantry", "/portfolio/april-rose-alpha"]:
+            for route in ["/", "/about", "/services", "/contact", "/portfolio", "/portfolio/sme-operations-crm", "/portfolio/dentalflow", "/portfolio/landvault", "/portfolio/cozy-pantry", "/portfolio/april-rose-alpha", "/portfolio/lupad-ta"]:
                 call("Page.navigate", {"url": base+route})
                 for _ in range(100):
                     if evaluate("document.readyState === 'complete' && location.pathname === "+json.dumps(route)): break
@@ -40,6 +40,22 @@ with tempfile.TemporaryDirectory(prefix="portfolio-browser-") as profile:
                 assert evaluate("document.documentElement.scrollWidth <= innerWidth"), (width, route, "horizontal overflow")
                 assert evaluate("!!document.querySelector('h1')"), route
                 assert evaluate("Array.from(document.images).filter(image => image.complete).every(image => image.naturalWidth > 0)"), (width, route, "broken image")
+                if route == "/" and width == 390:
+                    for _ in range(100):
+                        if evaluate("sessionStorage.getItem('portfolio-hero-drawn') === 'true'"): break
+                        time.sleep(.05)
+                    assert evaluate("document.querySelector('#hero').dataset.draw") == "true", "first-visit entrance"
+                    assert evaluate("getComputedStyle(document.querySelector('.hero-draw-frame'), '::after').animationName") == "hero-outline"
+                    evaluate("document.querySelector('#hero').getAnimations({subtree: true}).filter(animation => animation.effect.getComputedTiming().iterations !== Infinity).forEach(animation => animation.finish())")
+                    assert evaluate("getComputedStyle(document.querySelector('.hero-intro')).opacity") == "1", "entrance finishes visibly"
+                    assert evaluate("getComputedStyle(document.querySelector('.hero-draw-frame'), '::after').getPropertyValue('--hero-draw-angle').trim()") == "360deg", "outline finishes drawing"
+                    call("Emulation.setEmulatedMedia", {"features": [{"name": "prefers-reduced-motion", "value": "reduce"}]})
+                    assert evaluate("getComputedStyle(document.querySelector('.hero-intro')).animationName") == "none"
+                    assert evaluate("getComputedStyle(document.querySelector('.hero-screen')).opacity") == "1"
+                    assert evaluate("getComputedStyle(document.querySelector('.hero-draw-frame'), '::after').content") == "none"
+                    call("Emulation.setEmulatedMedia", {"features": [{"name": "prefers-reduced-motion", "value": "no-preference"}]})
+                if route == "/" and width > 390:
+                    assert evaluate("document.querySelector('#hero').hasAttribute('data-draw')") is False, "entrance does not replay"
                 if width == 390 and route == "/":
                     evaluate("document.querySelector('[aria-controls=mobile-navigation]').click()")
                     assert evaluate("document.querySelector('[aria-controls=mobile-navigation]').getAttribute('aria-expanded')") == "true"
@@ -48,7 +64,7 @@ with tempfile.TemporaryDirectory(prefix="portfolio-browser-") as profile:
                     assert evaluate("document.querySelector('[aria-controls=mobile-navigation]').getAttribute('aria-expanded')") == "false"
                     assert evaluate("document.activeElement === document.querySelector('[aria-controls=mobile-navigation]')")
                 if route == "/portfolio":
-                    assert evaluate("document.querySelectorAll('main a[href^=\"/portfolio/\"]').length") == 5, "project links"
+                    assert evaluate("document.querySelectorAll('main a[href^=\"/portfolio/\"]').length") == 6, "project links"
                 if route == "/contact": assert evaluate("document.querySelector('form') ? !document.querySelector('form').checkValidity() : !!document.querySelector('#contact-options a[href^=\"mailto:\"]')")
                 if route == "/" or (route == "/portfolio" and width in [390,1440]):
                     shot = call("Page.captureScreenshot", {"format": "png"})

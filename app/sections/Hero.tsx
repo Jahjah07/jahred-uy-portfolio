@@ -1,10 +1,12 @@
 import Link from "next/link";
 import LaptopMockup from "@/components/blueprint/LaptopMockup";
 import PhoneMockup from "@/components/blueprint/PhoneMockup";
+import HeroEntrance from "@/components/HeroEntrance";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-[calc(100dvh-5rem)] overflow-hidden bg-[var(--paper)]">
+    <section id="hero" className="relative min-h-[calc(100dvh-5rem)] overflow-hidden bg-[var(--paper)]">
+      <HeroEntrance />
       {/* =====================================================
           BLUEPRINT BACKGROUND
       ====================================================== */}
@@ -96,7 +98,7 @@ export default function Hero() {
                 LEFT CONTENT
             ================================================== */}
 
-            <div className="relative z-10 min-w-0 [container-type:inline-size]">
+            <div className="hero-intro relative z-10 min-w-0 [container-type:inline-size]">
               {/* Status */}
               <div className="mb-7 flex items-center gap-3 font-mono text-xs uppercase tracking-[0.2em] text-[var(--blueprint-blue)] sm:text-xs">
                 <span className="relative flex h-2 w-2">

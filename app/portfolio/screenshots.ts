@@ -18,6 +18,10 @@ import aprilHome from "@/public/images/april_portfolio/Home_Page.png";
 import aprilPortfolio from "@/public/images/april_portfolio/Portfolio_Page.png";
 import aprilServices from "@/public/images/april_portfolio/Service_Page.png";
 import aprilAbout from "@/public/images/april_portfolio/About_Me_Page.png";
+import lupadHome from "@/public/images/lupad-ta/Homepage.png";
+import lupadTours from "@/public/images/lupad-ta/Tours.png";
+import lupadDestinations from "@/public/images/lupad-ta/Destinations.png";
+import lupadContact from "@/public/images/lupad-ta/Contact.png";
 export const screenshots: Record<string, { image: StaticImageData; caption: string }[]> = {
   "dentalflow": [
     { image: dentalBooking, caption: "Patient booking form for the BrightSmile clinic demo" },
@@ -47,5 +51,11 @@ export const screenshots: Record<string, { image: StaticImageData; caption: stri
     { image: aprilPortfolio, caption: "Creative portfolio gallery" },
     { image: aprilServices, caption: "Virtual assistance services" },
     { image: aprilAbout, caption: "Professional background" },
+  ],
+  "lupad-ta": [
+    { image: lupadHome, caption: "LUPAD-Ta homepage with travel branding and tour discovery" },
+    { image: lupadTours, caption: "Tour package listings with advertised rates and trip durations" },
+    { image: lupadDestinations, caption: "Philippine destinations with related tour packages" },
+    { image: lupadContact, caption: "Trip inquiry form with email draft preparation and Facebook contact options" },
   ],
 };

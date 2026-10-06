@@ -44,6 +44,7 @@
 
 html {
   scroll-behavior: smooth;
+  scrollbar-color: var(--blueprint-blue) var(--blueprint-light);
 }
 
 body {
@@ -56,6 +57,46 @@ a, button { -webkit-tap-highlight-color: transparent; }
 :focus-visible { outline: 2px solid var(--blueprint-blue); outline-offset: 4px; }
 .skip-link { position: fixed; top: 8px; left: 8px; z-index: 100; transform: translateY(-200%); background: var(--paper); padding: 12px 16px; }
 .skip-link:focus { transform: translateY(0); }
+
+@property --hero-draw-angle {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+
+@keyframes hero-outline { to { --hero-draw-angle: 360deg; } }
+@keyframes hero-border { from, to { border-color: transparent; } }
+@keyframes hero-line { from { scale: 0; } to { scale: 1; } }
+@keyframes hero-reveal {
+  from { opacity: 0.4; translate: 0 8px; }
+  to { opacity: 1; translate: 0 0; }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  #hero[data-draw] .hero-draw-line {
+    transform-origin: top left;
+    animation: hero-line 700ms ease-out both;
+  }
+  #hero[data-draw] .hero-intro { animation: hero-reveal 650ms 450ms ease-out both; }
+  #hero[data-draw] .hero-screen { animation: hero-reveal 600ms 650ms ease-out both; }
+
+  @supports (mask-composite: exclude) {
+    #hero[data-draw] .hero-draw-frame { animation: hero-border 900ms; }
+    #hero[data-draw] .hero-draw-frame::after {
+      content: "";
+      position: absolute;
+      inset: -2px;
+      border-radius: inherit;
+      padding: 2px;
+      pointer-events: none;
+      background: conic-gradient(var(--blueprint-blue) var(--hero-draw-angle), transparent 0deg);
+      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      mask-composite: exclude;
+      animation: hero-outline 900ms ease-in-out both;
+    }
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation: none !important; transition: none !important; }

@@ -3,19 +3,19 @@ export default function PhoneMockup() {
     <div className="relative w-[135px] [container-type:inline-size] sm:w-[180px]">
       {/* Dimension - Top */}
       <div className="absolute -top-8 left-0 right-0 flex items-center gap-2">
-        <div className="h-px flex-1 bg-[var(--blueprint-grid)]" />
+        <div className="hero-draw-line h-px flex-1 bg-[var(--blueprint-grid)]" />
 
         <span className="font-mono text-[8px] uppercase tracking-[0.15em] text-[var(--blueprint-blue)]">
           390px
         </span>
 
-        <div className="h-px flex-1 bg-[var(--blueprint-grid)]" />
+        <div className="hero-draw-line h-px flex-1 bg-[var(--blueprint-grid)]" />
       </div>
 
       {/* Dimension - Right */}
       <div className="absolute -right-9 top-0 bottom-0 hidden items-center sm:flex">
         <div className="relative flex h-full items-center">
-          <div className="h-full w-px bg-[var(--blueprint-grid)]" />
+          <div className="hero-draw-line h-full w-px bg-[var(--blueprint-grid)]" />
 
           <span className="absolute -right-8 rotate-90 whitespace-nowrap font-mono text-[8px] uppercase tracking-[0.15em] text-[var(--blueprint-blue)]">
             844px
@@ -24,9 +24,9 @@ export default function PhoneMockup() {
       </div>
 
       {/* Phone */}
-      <div className="relative rounded-[28px] border-2 border-[var(--blueprint-blue)] bg-[var(--blueprint-light)] p-2 shadow-[0_20px_40px_rgba(11,31,58,0.14)]">
+      <div className="hero-draw-frame relative rounded-[28px] border-2 border-[var(--blueprint-blue)] bg-[var(--blueprint-light)] p-2 shadow-[0_20px_40px_rgba(11,31,58,0.14)]">
         {/* Screen */}
-        <div className="relative aspect-[390/844] overflow-hidden rounded-[20px] border border-[var(--blueprint-grid)] bg-[var(--paper-white)]">
+        <div className="hero-screen relative aspect-[390/844] overflow-hidden rounded-[20px] border border-[var(--blueprint-grid)] bg-[var(--paper-white)]">
           {/* Camera / Notch */}
           <div className="absolute left-1/2 top-2 z-20 h-4 w-14 -translate-x-1/2 rounded-full bg-[var(--blueprint)]" />
 
